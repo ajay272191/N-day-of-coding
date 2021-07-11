@@ -4,35 +4,43 @@ from tkinter import font
 
 root = Tk()
 
+# Title of Text editor window
 root.title("Sarthi's space")
-root.geometry('1200x660')
 
-#set variable for open filename
+# Setting up default window size
+root.geometry('1000x600')
+
+# status of current opened file
 global open_status_name
 open_status_name = False
 
-#create new file function
+
+# To create a new file
 def new_file():
     #delete previus text
     my_text.delete("1.0", END)
+
     #upadte status bar
-    root.title('New file text pad')
+    root.title('New file text file')
     status_bar.config(text="New File...")
+
     global open_status_name
     open_status_name = False
 
+
+# opening new file
 def open_file():
     #delete previus text
     my_text.delete("1.0", END)
 
     #grab filename
     text_file = filedialog.askopenfilename(initialdir='', title="Open File", filetypes=(("Text Files", "*.txt"), ("HTML Files", "*.html"), ("Python Files", "*.y"), ("All Files", "*.*")))
-    #check if th3re is a file name
+
+    #check if file get seleceted
     if text_file:
-        #make filename global so we can access it later
+        # making filename global so we can access it later
         global open_status_name
         open_status_name = text_file
-
 
     #update satus bar
     name = text_file
@@ -43,17 +51,20 @@ def open_file():
     #open fileids
     text_file = open(text_file, 'r')
     stuff = text_file.read()
+
     #add file to text file
     my_text.insert(END, stuff)
+
     #close the text file
     text_file.close()
 
+
+# saving file with desired filename
 def save_as_file():
     from tkinter.filedialog import asksaveasfilename
     global text_file
     text_file = asksaveasfilename()
     open_status_name = text_file
-    # text_file = filedialog.asksaveasfilename(defaultextension=".*", initialdir='', title="Save File", filetypes=(("Text Files", "*.txt"), ("HTML Files", ".html"), ("Python Files", "*.py"), ("All Files", "*.*")))
     if text_file:
         #save the file
         f = open(text_file, 'a')
@@ -62,7 +73,8 @@ def save_as_file():
         #close the file
         f.close()
 
-#save file
+
+# Saving file
 def save_file():
     global open_status_name
     # open_status_name = text_file
@@ -76,6 +88,8 @@ def save_file():
         f.close()
     else:
         save_as_file()
+
+
 #create main frame
 my_frame = Frame(root)
 my_frame.pack(pady = 5)
@@ -114,6 +128,7 @@ edit_menu.add_command(label="Redo")
 #add status bar to bottom of app
 status_bar = Label(root, text="Ready        ", anchor=E)#east = E
 status_bar.pack(fill=X, side=BOTTOM, ipady=5 )
+
 #configure scrollbar
 text_scroll.config(command=my_text.yview)
 root.mainloop()
