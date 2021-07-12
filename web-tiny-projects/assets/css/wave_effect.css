@@ -1,0 +1,50 @@
+body{
+  background-color: #b2f5f9;
+  overflow: hidden;
+}
+
+.main{
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wave{
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-color: transparent;
+  border: 26px solid #b0f1ed;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 6px 6px 18px 0px #3754aa33,
+              6px 6px 18px 0px #3754aa33 inset,
+              -6px -6px 18px #ffffff,
+              -6px -6px 18px #ffffff inset,
+              6px 6px 13px #ffffff inset;
+  filter: blur(13px);
+  animation: ripple 3s infinite ease-in;
+}
+
+.wave2{
+  width: 150%;
+  height: 150%;
+}
+.wave3{
+  width: 200%;
+  height: 200%;
+}
+
+@keyframes ripple{
+  0%{
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100%{
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
