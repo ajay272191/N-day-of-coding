@@ -1,0 +1,20 @@
+/* ---- reset ---- */
+
+body {
+  margin: 0;
+  font:normal 75% Arial, Helvetica, sans-serif;
+}
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #0a0611, #100e16, #14141b, #18191f, #1c1e24, #1c1e24, #1d1f24, #1d1f24, #191a1f, #15161b, #101016, #0a0911);
+}
